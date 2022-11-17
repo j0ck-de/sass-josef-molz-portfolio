@@ -79,6 +79,8 @@
 
     & h3 {
       text-align: center;
+      display: inline-block;
+      align-self: center;
     }
     & p {
       margin-top: var(--distance-min-top-bottom);
@@ -96,22 +98,6 @@
         flex-direction: column;
       }
     }
-  }
-
-  &__skills-1 {
-    grid-area: s1;
-    color: black;
-    background-color: white;
-  }
-  &__skills-2 {
-    grid-area: s2;
-    background-color: black;
-  }
-
-  &__skills-1,
-  &__skills-2 {
-    width: 100%;
-    height: 30rem;
   }
 
   &__name {
