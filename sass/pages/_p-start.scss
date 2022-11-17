@@ -7,7 +7,10 @@
     "hr" calc(100vh - var(--height-navbar) - var(--distance-top-bottom))
     "hr" min-content
     ".." min-content
+    "at" 1fr
     "at" min-content
+    ".." min-content
+    "tt" min-content
     /
     1fr;
 
@@ -20,8 +23,10 @@
     grid-template:
       "nv" min-content
       "hr" min-content
-      "qe" min-content
+      "q1" min-content
       "at" min-content
+      "q2" min-content
+      "tt" min-content
       /
       1fr;
   }
@@ -38,15 +43,26 @@
     // BOX
     background-color: var(--color-secondary);
   }
-  &__quote {
+  &__quote-1 {
     // DISPLAY
     grid-area: 3 / 1 / 5 / -1;
     // MEDIA QUERY
     @include respond(bp-medium) {
-      grid-area: qe;
+      grid-area: q1;
+    }
+  }
+  &__quote-2 {
+    // DISPLAY
+    grid-area: 6 / 1 / 8 / -1;
+    // MEDIA QUERY
+    @include respond(bp-medium) {
+      grid-area: q2;
     }
   }
   &__about {
     grid-area: at;
+  }
+  &__test {
+    grid-area: tt;
   }
 }

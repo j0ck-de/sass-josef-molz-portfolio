@@ -1,74 +1,139 @@
 // GO TO ./abstracts/_variables.scss FOR CONFIGURATION
 
 .l-about {
+  // DISPLAY
+  display: grid;
+  grid-template:
+    "me me me me" min-content
+    "th th th th" min-content
+    "ne ne ne ne" min-content
+    "ie ie ie ie" 50rem
+    / 1fr 2fr 2fr 1fr;
+
+  grid-row-gap: var(--distance-section);
+
+  align-items: center;
   // BOX
-  padding: var(--distance-top-bottom) var(--distance-left-right);
+  padding: var(--distance-section) var(--distance-left-right) 0
+    var(--distance-left-right);
   // MEDIA QUERY
   @include respond(bp-small) {
-    padding: var(--distance-top-bottom) 0;
+    padding: var(--distance-top-bottom) 0 0 0;
+    grid-row-gap: calc(var(--distance-section) / 1.5);
   }
 
-  &__video-container {
-    // DISPLAY
-    display: flex;
+  &__me {
+    grid-area: me;
+    display: grid;
+    grid-template:
+      "h1 vo vo vo" min-content
+      "tt tt tt tt" min-content
+      / 1fr 2fr 2fr 1fr;
+
+    grid-row-gap: var(--distance-min-top-bottom);
     align-items: center;
-    // BOX
-    margin: 0 auto;
-    // MEDIA QUERY
-    @include respond(bp-large) {
-      // DISPLAY
-      flex-direction: column;
-      // TEXT
+
+    @include respond(bp-medium) {
+      grid-template:
+        "h1" min-content
+        "vo" min-content
+        "tt" min-content
+        / 1fr;
+
       text-align: center;
     }
-    @include respond(bp-small) {
-      // DISPLAY
-      display: block;
+    & span {
+      grid-area: h1;
+      padding-right: var(--distance-min-left-right);
     }
-  }
-
-  &__text {
-    // DISPLAY
-    flex: 0 1 0;
-    // MEDIA QUERY
-    @include respond(bp-small) {
-      text-align: center;
-    }
-  }
-  &__video {
-    // DISPLAY
-    flex: 1;
-    // BOX
-    margin-left: var(--distance-min-left-right);
-    border-radius: var(--border-radius);
-    // MEDIA QUERY
-    @include respond(bp-large) {
-      // BOX
-      margin: 0;
-    }
-    @include respond(bp-small) {
-      // DISPLAY
-      flex: 0 0 25rem;
-      // BOX
-      margin-top: var(--distance-min-top-bottom);
-    }
-
     & video {
+      grid-area: vo;
       // BOX
       height: auto;
       width: 100%;
       border-radius: var(--border-radius);
       box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25);
+
       // MEDIA QUERY
       @include respond(bp-small) {
         // BOX
         border-radius: 0;
       }
     }
+    & p {
+      grid-area: tt;
+      @include respond(bp-small) {
+        padding: var(--distance-min-top-bottom) var(--distance-min-left-right);
+      }
+    }
   }
 
-  & p {
-    margin-top: var(--distance-min-top-bottom);
-    padding: 0 var(--distance-min-left-right);
+  &__tech {
+    grid-area: th;
+    display: flex;
+    flex-direction: column;
+
+    @include respond(bp-medium) {
+      align-items: center;
+    }
+
+    & h3 {
+      text-align: center;
+    }
+    & p {
+      margin-top: var(--distance-min-top-bottom);
+      margin-bottom: calc(var(--distance-min-top-bottom) / 1.5);
+      @include respond(bp-small) {
+        padding: var(--distance-min-top-bottom) var(--distance-min-left-right);
+      }
+    }
+    & div {
+      // in component
+      display: flex;
+      width: 100%;
+
+      @include respond(bp-medium) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__skills-1 {
+    grid-area: s1;
+    color: black;
+    background-color: white;
+  }
+  &__skills-2 {
+    grid-area: s2;
+    background-color: black;
+  }
+
+  &__skills-1,
+  &__skills-2 {
+    width: 100%;
+    height: 30rem;
+  }
+
+  &__name {
+    grid-area: ne;
+    //  margin-top: var(--distance-section);
+    @include respond(bp-medium) {
+      text-align: center;
+    }
+  }
+
+  &__pic {
+    grid-area: ie;
+    // BOX
+    height: 100%;
+    background-image: url(../../img/jock.jpg);
+    background-size: cover;
+    background-position: center;
+    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
+
+    @include respond(bp-small) {
+      border-radius: 0;
+    }
   }
 }

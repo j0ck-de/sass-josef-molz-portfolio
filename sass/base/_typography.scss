@@ -34,16 +34,23 @@ h2 {
   letter-spacing: -0.1rem;
 }
 
+h3 {
+  font-size: 4.8rem;
+  line-height: 4.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
 p,
 blockquote {
   font-family: var(--font-family-paragraph);
   font-size: var(--font-size-paragraph);
   line-height: 1.5;
+  font-weight: 200;
 
   @include respond(bp-small) {
     text-align: center;
     line-height: 1.5;
-    font-weight: 200;
   }
 }
 
@@ -79,6 +86,12 @@ button {
     @include respond(bp-medium) {
       font-size: calc(var(--font-size-highlight) * 1.5);
       line-height: 0.8;
+    }
+  }
+  &--highlight {
+    // TEXT
+    color: var(--color-highlight);
+    @include respond(bp-medium) {
     }
   }
 }
