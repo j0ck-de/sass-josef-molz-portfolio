@@ -1,0 +1,38 @@
+// GO TO ./abstracts/_variables.scss FOR CONFIGURATION
+
+.c-fixed-scroll {
+  // POSITION
+  position: relative;
+  // DISPLAY
+  overflow: hidden;
+  // BOX
+  background-color: var(--color-primary);
+  background-image: var(--background-image-body);
+
+  &__overlay {
+    // POSITION
+    position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    // BOX
+    width: 100%;
+    padding: var(--distance-top-bottom) 0;
+    // MEDIA QUERY
+    @include respond(bp-small) {
+      padding: var(--distance-min-top-bottom) 0;
+    }
+  }
+
+  &__content {
+    // BOX
+    max-width: calc(144rem - var(--distance-left-right) - 24rem);
+    margin: 0 auto;
+    background: var(--color-secondary);
+    border-radius: calc(
+      var(--border-radius) + 3px
+    ); // fix to solve the issue with border-radius and two overlapping images
+    box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25);
+  }
+}

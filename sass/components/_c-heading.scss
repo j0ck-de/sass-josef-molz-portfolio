@@ -1,0 +1,129 @@
+.c-heading {
+  // DISPLAY
+  display: grid;
+  grid-template:
+    "gt ht" min-content
+    "gt hb" min-content
+    "hp hp" min-content
+    /
+    min-content 1fr;
+  align-content: center;
+  // BOX
+  height: 100%;
+  padding: var(--distance-left-right);
+  //padding: var(--distance-top-bottom) var(--distance-left-right);
+  // TEXT
+  color: var(--color-primary);
+  //MEDIA QUERY
+  @include respond(bp-small) {
+    // DISPLAY
+    grid-template:
+      "gt" min-content
+      "ht" min-content
+      "hb" min-content
+      "hp" min-content
+      / 1fr;
+    justify-items: center;
+    // BOX
+    max-width: 100%;
+    padding: var(--distance-top-bottom) var(--distance-min-left-right);
+  }
+
+  @include respond(bp-medium) {
+    grid-template-columns: auto auto;
+  }
+
+  &__greet {
+    // DISPLAY
+    grid-area: gt;
+    @include respond(bp-medium) {
+      // DISPLAY
+      justify-self: end;
+    }
+    @include respond(bp-small) {
+      // DISPLAY
+      justify-self: center;
+    }
+  }
+  &__heading-top {
+    // DISPLAY
+    grid-area: ht;
+    align-self: end;
+    // TEXT
+    white-space: nowrap;
+
+    // MEDIA QUERY
+    // @include respond(bp-smallest) {
+    //   & span:last-child {
+    //     display: block;
+    //   }
+    // }
+
+    &--primary,
+    &--secondary,
+    &--highlight {
+      position: relative;
+      z-index: 1;
+    }
+
+    &--primary::before,
+    &--secondary::before,
+    &--highlight::before {
+      position: absolute;
+      content: "";
+      bottom: 10px;
+      left: 0;
+      height: 67%;
+      width: 105%;
+      z-index: -1;
+    }
+
+    &--primary {
+      &::before {
+        background-color: var(--color-teritery);
+      }
+    }
+    &--secondary {
+      color: var(--color-secondary);
+      &::before {
+        background-color: var(--color-highlight);
+      }
+    }
+    &--highlight {
+      color: var(--color-highlight);
+      &::before {
+        background-color: var(--color-primary);
+      }
+    }
+  }
+  &__heading-bottom {
+    // DISPLAY
+    grid-area: hb;
+
+    // MEDIA QUERY
+    @include respond(bp-small) {
+      //TEXT
+      text-align: center;
+    }
+
+    & span {
+      // DISPLAY
+      display: block;
+    }
+  }
+  &__text {
+    // DISPLAY
+    grid-area: hp;
+    // BOX
+    max-width: 49rem;
+    // MEDIA QUERY
+    @include respond(bp-small) {
+      margin-top: var(--distance-top-bottom);
+    }
+    @include respond(bp-medium) {
+      // TEXT
+      text-align: center;
+      max-width: 100%;
+    }
+  }
+}

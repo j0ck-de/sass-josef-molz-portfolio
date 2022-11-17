@@ -1,0 +1,52 @@
+// GO TO ./abstracts/_variables.scss FOR CONFIGURATION
+
+.p-start {
+  display: grid;
+  grid-template:
+    "nv" min-content
+    "hr" calc(100vh - var(--height-navbar) - var(--distance-top-bottom))
+    "hr" min-content
+    ".." min-content
+    "at" min-content
+    /
+    1fr;
+
+  align-content: center;
+
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+
+  @include respond(bp-medium) {
+    grid-template:
+      "nv" min-content
+      "hr" min-content
+      "qe" min-content
+      "at" min-content
+      /
+      1fr;
+  }
+
+  &__nav {
+    // DISPLAY
+    grid-area: nv;
+    // grid-column: 1 / -1;
+    // grid-row: 1 / 2;
+  }
+  &__header {
+    // DISPLAY
+    grid-area: hr;
+    // BOX
+    background-color: var(--color-secondary);
+  }
+  &__quote {
+    // DISPLAY
+    grid-area: 3 / 1 / 5 / -1;
+    // MEDIA QUERY
+    @include respond(bp-medium) {
+      grid-area: qe;
+    }
+  }
+  &__about {
+    grid-area: at;
+  }
+}

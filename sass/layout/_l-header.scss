@@ -1,0 +1,42 @@
+.l-header {
+  // DISPLAY
+  display: flex;
+  justify-content: space-between;
+  // BOX
+  height: calc(
+    100vh - var(--distance-top-bottom) - var(--height-navbar)
+  ); // to make sure the hero content is always exactly the viewport height
+  width: 100%;
+  background-color: var(--color-secondary);
+  // TEXT
+  color: var(--color-primary);
+  // MEDIA QUERY
+  @include respond(bp-small) {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  @include respond(bp-medium) {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__heading {
+    // DISPLAY
+    flex: 1 0 60%;
+    // BOX
+    margin: 0 auto;
+    // MEDIA QUERY
+    @include respond(bp-small) {
+      flex: 1;
+    }
+  }
+  &__image {
+    flex: 0 1 40%;
+    // MEDIA QUERY
+    @include respond(bp-small) {
+      flex: 1;
+      min-height: 40rem;
+    }
+  }
+}

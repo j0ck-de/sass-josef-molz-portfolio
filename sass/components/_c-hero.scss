@@ -1,0 +1,52 @@
+// GO TO ./abstracts/_variables.scss FOR CONFIGURATION
+
+.c-hero {
+  // DISPLAY
+  display: flex;
+  justify-content: space-between;
+
+  // BOX
+  height: calc(
+    100vh - var(--distance-top-bottom) - var(--height-navbar)
+  ); // to make sure the hero content is always exactly the viewport height
+  width: 100%;
+  background-color: var(--color-secondary);
+
+  // TEXT
+  color: var(--color-primary);
+
+  // MEDIA QUERY
+  @include respond(bp-medium) {
+    // DISPLAY
+    flex-direction: column;
+    height: 100%;
+    // BOX
+  }
+
+  &__text {
+    // DISPLAY
+    flex: 1 0 50%;
+    // MEDIA QUERY
+    @include respond(bp-medium) {
+      // DISPLAY
+      flex: 1 0 50%;
+    }
+  }
+  &__pic {
+    // DISPLAY
+    flex: 0 1 50%;
+
+    // BOX
+    background-image: url(../../img/hero.jpg);
+    background-size: cover;
+    background-position: center;
+
+    // MEDIA QUERY
+    @include respond(bp-medium) {
+      // DISPLAY
+      flex: 1 0 50rem;
+      // BOX
+      background-position: 75% 25%;
+    }
+  }
+}

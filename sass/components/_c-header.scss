@@ -1,0 +1,136 @@
+.c-header {
+  // DISPLAY
+  display: grid;
+  grid-template:
+    ".. .. .. .. ie" 1fr
+    ".. gt ht .. ie" min-content
+    ".. gt hb .. ie" min-content
+    ".. tt tt .. ie" 1fr
+    ".. .. .. .. ie" 1fr
+    /
+    var(--distance-left-right)
+    min-content
+    min-content
+    var(--distance-left-right)
+    1fr;
+
+  // TEXT
+  color: var(--color-primary);
+  // MEDIA QUERY
+  @include respond(bp-medium) {
+    grid-template:
+      ".. ..  .. ie" 1fr
+      ".. gt  .. ie" min-content
+      ".. ht  .. ie" min-content
+      ".. hb  .. ie" min-content
+      ".. tt  .. ie" 1fr
+      ".. ..  .. ie" 1fr
+      /
+      var(--distance-left-right)
+      min-content
+      var(--distance-left-right)
+      1fr;
+    justify-items: center;
+    text-align: center;
+
+    // & > *:nth-child(2) {
+    //   margin-bottom: 0.25rem;
+    // }
+    & > *:nth-child(3) {
+      margin-bottom: var(--distance-min-top-bottom);
+    }
+  }
+
+  @include respond(bp-small) {
+    grid-template:
+      ".. ..  .." var(--distance-top-bottom)
+      ".. gt  .." min-content
+      ".. ht  .." min-content
+      ".. hb  .." min-content
+      ".. tt  .." 1fr
+      ".. ..  .." var(--distance-min-top-bottom)
+      "ie ie  ie" 40rem
+      /
+      var(--distance-min-left-right)
+      1fr
+      var(--distance-min-left-right);
+  }
+
+  &__greet {
+    // DISPLAY
+    grid-area: gt;
+    align-self: center;
+  }
+  &__heading-top {
+    // DISPLAY
+    grid-area: ht;
+    align-self: end;
+    // TEXT
+    white-space: nowrap;
+
+    &--primary,
+    &--secondary,
+    &--highlight {
+      position: relative;
+      z-index: 1;
+    }
+
+    &--primary::before,
+    &--secondary::before,
+    &--highlight::before {
+      position: absolute;
+      content: "";
+      bottom: 10px;
+      left: 0;
+      height: 67%;
+      width: 105%;
+      z-index: -1;
+    }
+
+    &--primary {
+      &::before {
+        background-color: var(--color-teritery);
+      }
+    }
+    &--secondary {
+      color: var(--color-secondary);
+      &::before {
+        background-color: var(--color-highlight);
+      }
+    }
+    &--highlight {
+      color: var(--color-highlight);
+      &::before {
+        background-color: var(--color-primary);
+      }
+    }
+  }
+  &__heading-bottom {
+    // DISPLAY
+    grid-area: hb;
+
+    & span {
+      // DISPLAY
+      display: block;
+    }
+  }
+  &__text {
+    // DISPLAY
+    grid-area: tt;
+  }
+  &__image {
+    // DISPLAY
+    grid-area: ie;
+    // BOX
+    width: 100%;
+    height: 100%;
+    background-image: url(../../img/hero-2.jpg);
+    background-size: cover;
+    background-position: center;
+    // MEDIA QUERY
+    @include respond(bp-small) {
+      // BOX
+      background-position: 75% 25%;
+    }
+  }
+}

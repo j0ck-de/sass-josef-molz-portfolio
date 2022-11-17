@@ -1,0 +1,27 @@
+// GO TO ./abstracts/_variables.scss FOR CONFIGURATION
+
+.c-nav {
+  // DISPLAY
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  // BOX
+  width: 100%;
+  height: var(--height-navbar);
+  background-color: var(--color-primary);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  // TEXT
+  color: var(--color-secondary);
+  // MEDIA QUERY
+  @include respond(bp-small) {
+    justify-content: center;
+  }
+
+  &__link {
+    &:not(:last-child) {
+      // BOX
+      margin-right: var(--distance-navbar-link);
+    }
+  }
+}

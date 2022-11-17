@@ -1,0 +1,111 @@
+// GO TO ./abstracts/_variables.scss FOR CONFIGURATION
+
+.c-quote {
+  // POSITION
+  position: relative;
+  // DISPLAY
+  display: flex;
+  justify-content: center;
+  // TEXT
+  color: var(--color-primary);
+  // MEDIA QUERY
+  @include respond(bp-medium) {
+    display: block;
+  }
+
+  &--primary::before,
+  &--secondary::before,
+  &--teritery::before,
+  &--highlight::before {
+    // POSITION
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    // BOX
+    width: 100%;
+    height: 50%;
+
+    @include respond(bp-large) {
+      display: none;
+    }
+  }
+
+  &--primary::before {
+    // BOX
+    background-color: var(--color-primary);
+  }
+  &--secondary::before {
+    // BOX
+    background-color: var(--color-secondary);
+  }
+  &--teritery::before {
+    // BOX
+    background-color: var(--color-teritery);
+  }
+  &--highlight::before {
+    // BOX
+    background-color: var(--color-highlight);
+  }
+
+  &__text {
+    // POSITION
+    z-index: 2;
+    // DISPLAY
+    justify-self: center;
+    // BOX
+    width: 50%;
+    padding: var(--distance-quote);
+    background-color: var(--color-teritery);
+    border-radius: var(--border-radius);
+    box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25);
+    // TEXT
+    text-align: center;
+    // MEDIA QUERY
+    @include respond(bp-small) {
+      padding: var(--distance-min-top-bottom) var(--distance-min-left-right);
+    }
+    @include respond(bp-medium) {
+      border-radius: 0;
+      width: 100%;
+    }
+
+    & div {
+      margin-top: var(--distance-min-top-bottom);
+      text-align: center;
+    }
+  }
+
+  &__author {
+    // DISPLAY
+    display: flex;
+
+    & span {
+      // POSITION
+      position: relative;
+      color: red;
+      // BOX
+      width: 100%;
+
+      &::before {
+        // POSITION
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        // BOX
+        height: 5px;
+        width: 100%;
+        background-color: var(--color-highlight);
+        z-index: 10;
+        // OTHER
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    & b {
+      margin: 0 10px;
+    }
+  }
+}

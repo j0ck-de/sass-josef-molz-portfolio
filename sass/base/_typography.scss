@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Skranji:wght@400;700&display=swap");
+
+body {
+  // TEXT
+  font-family: var(--font-family-primary);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-primary);
+}
+
+h1,
+h2 {
+  // TEXT
+  font-family: var(--font-family-primary);
+  line-height: 1;
+  white-space: nowrap;
+  // MEDIA QUERY
+  @include respond(bp-medium) {
+    white-space: initial;
+  }
+}
+
+h1 {
+  // TEXT
+  font-size: var(--font-size-heading-large);
+  font-weight: 900;
+  letter-spacing: -0.3rem;
+}
+
+h2 {
+  // TEXT
+  font-size: var(--font-size-heading-small);
+  font-weight: 500;
+  letter-spacing: -0.1rem;
+}
+
+p,
+blockquote {
+  font-family: var(--font-family-paragraph);
+  font-size: var(--font-size-paragraph);
+  line-height: 1.5;
+
+  @include respond(bp-small) {
+    text-align: center;
+    line-height: 1.5;
+    font-weight: 200;
+  }
+}
+
+blockquote {
+  font-style: italic;
+  font-weight: 300;
+
+  @include respond(bp-small) {
+    font-weight: 200;
+  }
+}
+
+button {
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.t-fat-text {
+  // TEXT
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-highlight);
+  font-weight: 700;
+  line-height: 0.9;
+  @include respond(bp-small) {
+    font-size: calc(var(--font-size-highlight) / 1.5);
+    line-height: 0.8;
+  }
+
+  &--primary {
+    // TEXT
+    color: var(--color-primary);
+    @include respond(bp-medium) {
+      font-size: calc(var(--font-size-highlight) * 1.5);
+      line-height: 0.8;
+    }
+  }
+}
