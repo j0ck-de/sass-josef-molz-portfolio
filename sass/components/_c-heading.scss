@@ -14,6 +14,7 @@
   //padding: var(--distance-top-bottom) var(--distance-left-right);
   // TEXT
   color: var(--color-primary);
+  pointer-events: none;
   //MEDIA QUERY
   @include respond(bp-small) {
     // DISPLAY

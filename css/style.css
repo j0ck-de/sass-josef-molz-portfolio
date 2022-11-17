@@ -289,7 +289,8 @@ button {
   align-content: center;
   height: 100%;
   padding: var(--distance-left-right);
-  color: var(--color-primary); }
+  color: var(--color-primary);
+  pointer-events: none; }
   @media only screen and (max-width: 37.5em) {
     .c-heading {
       grid-template: "gt" min-content "ht" min-content "hb" min-content "hp" min-content / 1fr;
@@ -392,7 +393,8 @@ button {
       grid-template: ".. ..  .." var(--distance-top-bottom) ".. gt  .." min-content ".. ht  .." min-content ".. hb  .." min-content ".. tt  .." 1fr ".. ..  .." var(--distance-min-top-bottom) "ie ie  ie" 40rem/var(--distance-min-left-right) 1fr var(--distance-min-left-right); } }
   .c-header__greet {
     grid-area: gt;
-    align-self: center; }
+    align-self: center;
+    user-select: none; }
   .c-header__heading-top {
     grid-area: ht;
     align-self: end;
@@ -467,7 +469,6 @@ button {
   padding: var(--distance-top-bottom) var(--distance-left-right); }
   @media only screen and (max-width: 37.5em) {
     .l-about {
-      padding: 0;
       padding: var(--distance-top-bottom) 0; } }
   .l-about__video-container {
     display: flex;

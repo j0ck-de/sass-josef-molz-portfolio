@@ -1,58 +1,67 @@
 // GO TO ./abstracts/_variables.scss FOR CONFIGURATION
 
 .l-about {
+  // BOX
   padding: var(--distance-top-bottom) var(--distance-left-right);
-
+  // MEDIA QUERY
   @include respond(bp-small) {
-    padding: 0;
     padding: var(--distance-top-bottom) 0;
   }
 
   &__video-container {
+    // DISPLAY
     display: flex;
     align-items: center;
+    // BOX
     margin: 0 auto;
-
+    // MEDIA QUERY
     @include respond(bp-large) {
+      // DISPLAY
       flex-direction: column;
+      // TEXT
       text-align: center;
     }
     @include respond(bp-small) {
+      // DISPLAY
       display: block;
     }
   }
 
   &__text {
+    // DISPLAY
     flex: 0 1 0;
-
+    // MEDIA QUERY
     @include respond(bp-small) {
       text-align: center;
     }
   }
   &__video {
+    // DISPLAY
     flex: 1;
-    // max-width: 640px;
-    // height: 480px;
-
-    // background-color: var(--color-highlight);
+    // BOX
     margin-left: var(--distance-min-left-right);
     border-radius: var(--border-radius);
-
+    // MEDIA QUERY
     @include respond(bp-large) {
+      // BOX
       margin: 0;
     }
     @include respond(bp-small) {
+      // DISPLAY
       flex: 0 0 25rem;
+      // BOX
       margin-top: var(--distance-min-top-bottom);
     }
 
     & video {
+      // BOX
       height: auto;
       width: 100%;
       border-radius: var(--border-radius);
       box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25);
-
+      // MEDIA QUERY
       @include respond(bp-small) {
+        // BOX
         border-radius: 0;
       }
     }

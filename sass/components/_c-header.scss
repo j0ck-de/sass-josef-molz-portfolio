@@ -16,6 +16,7 @@
 
   // TEXT
   color: var(--color-primary);
+
   // MEDIA QUERY
   @include respond(bp-medium) {
     grid-template:
@@ -60,6 +61,7 @@
     // DISPLAY
     grid-area: gt;
     align-self: center;
+    user-select: none;
   }
   &__heading-top {
     // DISPLAY
