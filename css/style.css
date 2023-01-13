@@ -356,7 +356,8 @@ button {
         z-index: 10;
         transform: translate(-50%, -50%); }
     .c-quote__author b {
-      margin: 0 10px; }
+      margin: 0 10px;
+      line-height: 1; }
 
 .c-heading {
   display: grid;
@@ -629,7 +630,7 @@ button {
       padding: var(--distance-top-bottom) 0 0 0; } }
   @media only screen and (max-width: 56.25em) {
     .l-about {
-      grid-template: "me me me me" min-content ".. .. .. .." var(--distance-section-small) "th th th th" min-content ".. .. .. .." var(--distance-section-small) "ne ne ne ne" min-content ".. .. .. .." ".. .. .. .." calc(var(--distance-min-top-bottom) / 1.5) "sb sb sb sb" min-content "ie ie ie ie" 45rem/1fr 2fr 2fr 1fr; } }
+      grid-template: "me me me me" min-content ".. .. .. .." var(--distance-section-small) "th th th th" min-content ".. .. .. .." var(--distance-section-small) "ne ne ne ne" min-content ".. .. .. .." ".. .. .. .." calc(var(--distance-min-top-bottom) / 1.5) "sb sb sb sb" min-content "ie ie ie ie" 25rem/1fr 2fr 2fr 1fr; } }
   .l-about__me {
     grid-area: me;
     display: grid;
