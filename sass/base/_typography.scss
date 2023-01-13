@@ -52,6 +52,7 @@ h2 {
   letter-spacing: -0.05em;
   position: relative;
   z-index: 2;
+  white-space: nowrap;
 
   &--primary {
     color: var(--color-primary);
@@ -65,6 +66,20 @@ h2 {
 
     &::before {
       background-color: var(--color-highlight);
+    }
+  }
+  &--highlight {
+    color: var(--color-highlight);
+
+    &::before {
+      background-color: var(--color-primary);
+    }
+  }
+  &--teritery {
+    color: var(--color-secondary);
+
+    &::before {
+      background-color: var(--color-primary);
     }
   }
 
@@ -84,11 +99,18 @@ blockquote {
   font-family: var(--font-family-paragraph);
   font-size: var(--font-size-paragraph);
   line-height: 1.5;
-  font-weight: 200;
+  font-weight: var(--font-weight-medium);
 
-  @include respond(bp-small) {
+  @include respond(bp-medium) {
     text-align: center;
     line-height: 1.5;
+    font-weight: var(--font-weight-thin);
+  }
+  @include respond(bp-small) {
+    text-align: center;
+    font-size: var(--font-size-paragraph-small);
+    line-height: 1.5;
+    font-weight: var(--font-weight-skinny);
   }
 }
 

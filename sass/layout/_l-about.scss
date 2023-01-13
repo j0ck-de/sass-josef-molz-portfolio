@@ -9,7 +9,7 @@
     "th th th th" min-content
     ".. .. .. .." var(--distance-section)
     "ne ne sb sb" min-content
-    ".. .. .. .." var(--distance-section)
+    ".. .. .. .." calc(var(--distance-min-top-bottom) / 1.5)
     "ie ie ie ie" 50rem
     / 1fr 2fr 2fr 1fr;
 
@@ -31,9 +31,9 @@
       "th th th th" min-content
       ".. .. .. .." var(--distance-section-small)
       "ne ne ne ne" min-content
-      ".. .. .. .." var(--distance-section-small)
+      ".. .. .. .." ".. .. .. .." calc(var(--distance-min-top-bottom) / 1.5)
       "sb sb sb sb" min-content
-      "ie ie ie ie" 50rem
+      "ie ie ie ie" 45rem
       / 1fr 2fr 2fr 1fr;
   }
 

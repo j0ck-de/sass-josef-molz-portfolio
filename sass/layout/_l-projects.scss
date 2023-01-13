@@ -1,0 +1,32 @@
+.l-projects {
+  display: flex;
+  justify-content: stretch;
+  flex-direction: row;
+  width: 100%;
+
+  @include respond(bp-small) {
+    flex-direction: column;
+  }
+
+  &__left,
+  &__right {
+    flex: 1;
+    padding: var(--distance-section) var(--distance-left-right) 0
+      var(--distance-left-right);
+    text-align: center;
+  }
+
+  &__left {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+  }
+
+  &__right {
+    background-color: var(--color-highlight);
+    color: var(--color-secondary);
+  }
+
+  & * h3 {
+    display: inline-block;
+  }
+}

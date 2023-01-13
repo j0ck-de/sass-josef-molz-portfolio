@@ -10,10 +10,12 @@
   --font-size-heading-small: 1.6rem;
   --font-size-heading-paragraph: 2rem;
   --font-size-highlight: 18.5rem;
-  --font-size-paragraph: 1.6rem;
-  --font-weight-bold: ;
-  --font-weight-medium: ;
-  --font-weight-thin: ;
+  --font-size-paragraph: 2rem;
+  --font-size-paragraph-small: 1.6rem;
+  --font-weight-bold: 700;
+  --font-weight-medium: 400;
+  --font-weight-thin: 300;
+  --font-weight-skinny: 200;
   --distance-top-bottom: 5.75rem;
   --distance-min-top-bottom: 2rem;
   --distance-left-right: 5rem;
@@ -145,7 +147,8 @@ h2 {
   font-weight: 900;
   letter-spacing: -0.05em;
   position: relative;
-  z-index: 2; }
+  z-index: 2;
+  white-space: nowrap; }
   .underline--primary {
     color: var(--color-primary); }
     .underline--primary::before {
@@ -154,6 +157,14 @@ h2 {
     color: var(--color-secondary); }
     .underline--secondary::before {
       background-color: var(--color-highlight); }
+  .underline--highlight {
+    color: var(--color-highlight); }
+    .underline--highlight::before {
+      background-color: var(--color-primary); }
+  .underline--teritery {
+    color: var(--color-secondary); }
+    .underline--teritery::before {
+      background-color: var(--color-primary); }
   .underline::before {
     position: absolute;
     content: "";
@@ -168,12 +179,20 @@ blockquote {
   font-family: var(--font-family-paragraph);
   font-size: var(--font-size-paragraph);
   line-height: 1.5;
-  font-weight: 200; }
+  font-weight: var(--font-weight-medium); }
+  @media only screen and (max-width: 56.25em) {
+    p,
+    blockquote {
+      text-align: center;
+      line-height: 1.5;
+      font-weight: var(--font-weight-thin); } }
   @media only screen and (max-width: 37.5em) {
     p,
     blockquote {
       text-align: center;
-      line-height: 1.5; } }
+      font-size: var(--font-size-paragraph-small);
+      line-height: 1.5;
+      font-weight: var(--font-weight-skinny); } }
 
 blockquote {
   font-style: italic;
@@ -262,7 +281,7 @@ button {
   @media only screen and (max-width: 56.25em) {
     .c-quote {
       display: block; } }
-  .c-quote--primary::before, .c-quote--secondary::before, .c-quote--teritery::before, .c-quote--highlight::before {
+  .c-quote--col-1::before {
     position: absolute;
     content: "";
     top: 50%;
@@ -271,15 +290,35 @@ button {
     width: 100%;
     height: 50%; }
     @media only screen and (max-width: 68.75rem) {
-      .c-quote--primary::before, .c-quote--secondary::before, .c-quote--teritery::before, .c-quote--highlight::before {
+      .c-quote--col-1::before {
         display: none; } }
-  .c-quote--primary::before {
-    background-color: var(--color-primary); }
-  .c-quote--secondary::before {
+  .c-quote--col-2::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    width: 50%;
+    height: 50%;
     background-color: var(--color-secondary); }
-  .c-quote--teritery::before {
-    background-color: var(--color-teritery); }
-  .c-quote--highlight::before {
+    @media only screen and (max-width: 56.25em) {
+      .c-quote--col-2::before {
+        display: none; } }
+  .c-quote--col-2::after, .c-quote--col-2::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    z-index: 1;
+    width: 50%;
+    height: 50%; }
+    @media only screen and (max-width: 56.25em) {
+      .c-quote--col-2::after, .c-quote--col-2::before {
+        display: none; } }
+  .c-quote--col-2::before {
+    right: 50%;
+    background-color: var(--color-secondary); }
+  .c-quote--col-2::after {
+    left: 50%;
     background-color: var(--color-highlight); }
   .c-quote__text {
     z-index: 2;
@@ -539,6 +578,19 @@ button {
     padding: 1.25rem 0;
     box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25); }
 
+.c-project {
+  margin-top: var(--distance-min-top-bottom);
+  padding: 0 0;
+  text-align: left; }
+  .c-project__img {
+    width: 100%; }
+  .c-project__text {
+    margin-top: var(--distance-min-top-bottom); }
+  .c-project__link {
+    display: block;
+    text-align: right;
+    margin-top: var(--distance-min-top-bottom); }
+
 .l-header {
   display: flex;
   justify-content: space-between;
@@ -569,7 +621,7 @@ button {
 
 .l-about {
   display: grid;
-  grid-template: "me me me me" min-content ".. .. .. .." var(--distance-section) "th th th th" min-content ".. .. .. .." var(--distance-section) "ne ne sb sb" min-content ".. .. .. .." var(--distance-section) "ie ie ie ie" 50rem/1fr 2fr 2fr 1fr;
+  grid-template: "me me me me" min-content ".. .. .. .." var(--distance-section) "th th th th" min-content ".. .. .. .." var(--distance-section) "ne ne sb sb" min-content ".. .. .. .." calc(var(--distance-min-top-bottom) / 1.5) "ie ie ie ie" 50rem/1fr 2fr 2fr 1fr;
   align-items: center;
   padding: var(--distance-section) var(--distance-left-right) 0 var(--distance-left-right); }
   @media only screen and (max-width: 37.5em) {
@@ -577,7 +629,7 @@ button {
       padding: var(--distance-top-bottom) 0 0 0; } }
   @media only screen and (max-width: 56.25em) {
     .l-about {
-      grid-template: "me me me me" min-content ".. .. .. .." var(--distance-section-small) "th th th th" min-content ".. .. .. .." var(--distance-section-small) "ne ne ne ne" min-content ".. .. .. .." var(--distance-section-small) "sb sb sb sb" min-content "ie ie ie ie" 50rem/1fr 2fr 2fr 1fr; } }
+      grid-template: "me me me me" min-content ".. .. .. .." var(--distance-section-small) "th th th th" min-content ".. .. .. .." var(--distance-section-small) "ne ne ne ne" min-content ".. .. .. .." ".. .. .. .." calc(var(--distance-min-top-bottom) / 1.5) "sb sb sb sb" min-content "ie ie ie ie" 45rem/1fr 2fr 2fr 1fr; } }
   .l-about__me {
     grid-area: me;
     display: grid;
@@ -649,6 +701,27 @@ button {
 
 .l-quote {
   box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25); }
+
+.l-projects {
+  display: flex;
+  justify-content: stretch;
+  flex-direction: row;
+  width: 100%; }
+  @media only screen and (max-width: 37.5em) {
+    .l-projects {
+      flex-direction: column; } }
+  .l-projects__left, .l-projects__right {
+    flex: 1;
+    padding: var(--distance-section) var(--distance-left-right) 0 var(--distance-left-right);
+    text-align: center; }
+  .l-projects__left {
+    background-color: var(--color-secondary);
+    color: var(--color-primary); }
+  .l-projects__right {
+    background-color: var(--color-highlight);
+    color: var(--color-secondary); }
+  .l-projects * h3 {
+    display: inline-block; }
 
 .p-start {
   display: grid;

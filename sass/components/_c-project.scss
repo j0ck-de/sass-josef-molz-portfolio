@@ -1,0 +1,19 @@
+.c-project {
+  margin-top: var(--distance-min-top-bottom);
+  padding: 0 0;
+  text-align: left;
+
+  &__img {
+    width: 100%;
+  }
+
+  &__text {
+    margin-top: var(--distance-min-top-bottom);
+  }
+
+  &__link {
+    display: block;
+    text-align: right;
+    margin-top: var(--distance-min-top-bottom);
+  }
+}
