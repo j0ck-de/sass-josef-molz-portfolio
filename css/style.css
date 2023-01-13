@@ -20,6 +20,7 @@
   --distance-min-left-right: 1.25rem;
   --distance-quote: 7.75rem;
   --distance-section: 10rem;
+  --distance-section-small: 5rem;
   --border-radius: 10px;
   --height-navbar: 3.75rem;
   --distance-navbar-link: 2rem;
@@ -124,6 +125,14 @@ h1 {
   font-size: var(--font-size-heading-large);
   font-weight: 900;
   letter-spacing: -0.3rem; }
+
+h3 {
+  font-weight: 900;
+  font-size: 2.5rem;
+  line-height: 27px;
+  /* identical to box height */
+  text-align: center;
+  letter-spacing: -0.03em; }
 
 h2 {
   font-size: var(--font-size-heading-small);
@@ -467,11 +476,68 @@ button {
 .c-skills__item {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
   height: 30rem;
-  box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25); }
-  .c-skills__item--secondary {
-    background-color: var(--color-secondary); }
+  box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25);
+  color: var(--color-primary);
+  padding: var(--distance-left-right);
+  text-align: center; }
+  .c-skills__item--left {
+    background-color: var(--color-secondary);
+    border-radius: var(--border-radius) 0 0 var(--border-radius); }
+    @media only screen and (max-width: 56.25em) {
+      .c-skills__item--left {
+        border-radius: 0; } }
+  .c-skills__item--right {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    color: var(--color-secondary); }
+    @media only screen and (max-width: 56.25em) {
+      .c-skills__item--right {
+        border-radius: 0; } }
+    .c-skills__item--right div {
+      font-size: 3rem; }
+
+.c-social-band {
+  position: relative;
+  height: 10rem;
+  height: 100%; }
+  .c-social-band__items {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: -var(--distance-left-right);
+    width: calc(100% + var(--distance-left-right));
+    text-align: center;
+    transform: translateY(-50%); }
+    @media only screen and (max-width: 56.25em) {
+      .c-social-band__items {
+        position: static;
+        width: 100%;
+        top: 0;
+        right: 0;
+        transform: translateY(0); } }
+    .c-social-band__items :nth-child(1) {
+      border-radius: var(--border-radius) 0 0 var(--border-radius); }
+      @media only screen and (max-width: 56.25em) {
+        .c-social-band__items :nth-child(1) {
+          border-radius: var(--border-radius) 0 0 0; } }
+      @media only screen and (max-width: 37.5em) {
+        .c-social-band__items :nth-child(1) {
+          border-radius: 0; } }
+    @media only screen and (max-width: 56.25em) {
+      .c-social-band__items :nth-child(3) {
+        border-radius: 0 var(--border-radius) 0 0; } }
+    @media only screen and (max-width: 37.5em) {
+      .c-social-band__items :nth-child(3) {
+        border-radius: 0; } }
+  .c-social-band__item {
+    display: block;
+    background-color: var(--color-secondary);
+    color: var(--color-highlight);
+    width: 100%;
+    padding: 1.25rem 0;
+    box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25); }
 
 .l-header {
   display: flex;
@@ -503,14 +569,15 @@ button {
 
 .l-about {
   display: grid;
-  grid-template: "me me me me" min-content "th th th th" min-content "ne ne ne ne" min-content "ie ie ie ie" 50rem / 1fr 2fr 2fr 1fr;
-  grid-row-gap: var(--distance-section);
+  grid-template: "me me me me" min-content ".. .. .. .." var(--distance-section) "th th th th" min-content ".. .. .. .." var(--distance-section) "ne ne sb sb" min-content ".. .. .. .." var(--distance-section) "ie ie ie ie" 50rem/1fr 2fr 2fr 1fr;
   align-items: center;
   padding: var(--distance-section) var(--distance-left-right) 0 var(--distance-left-right); }
   @media only screen and (max-width: 37.5em) {
     .l-about {
-      padding: var(--distance-top-bottom) 0 0 0;
-      grid-row-gap: calc(var(--distance-section) / 1.5); } }
+      padding: var(--distance-top-bottom) 0 0 0; } }
+  @media only screen and (max-width: 56.25em) {
+    .l-about {
+      grid-template: "me me me me" min-content ".. .. .. .." var(--distance-section-small) "th th th th" min-content ".. .. .. .." var(--distance-section-small) "ne ne ne ne" min-content ".. .. .. .." var(--distance-section-small) "sb sb sb sb" min-content "ie ie ie ie" 50rem/1fr 2fr 2fr 1fr; } }
   .l-about__me {
     grid-area: me;
     display: grid;
@@ -566,6 +633,8 @@ button {
     @media only screen and (max-width: 56.25em) {
       .l-about__name {
         text-align: center; } }
+  .l-about__social-band {
+    grid-area: sb; }
   .l-about__pic {
     grid-area: ie;
     height: 100%;
@@ -574,7 +643,7 @@ button {
     background-position: center;
     border-top-right-radius: var(--border-radius);
     border-top-left-radius: var(--border-radius); }
-    @media only screen and (max-width: 37.5em) {
+    @media only screen and (max-width: 56.25em) {
       .l-about__pic {
         border-radius: 0; } }
 

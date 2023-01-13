@@ -5,12 +5,15 @@
   display: grid;
   grid-template:
     "me me me me" min-content
+    ".. .. .. .." var(--distance-section)
     "th th th th" min-content
-    "ne ne ne ne" min-content
+    ".. .. .. .." var(--distance-section)
+    "ne ne sb sb" min-content
+    ".. .. .. .." var(--distance-section)
     "ie ie ie ie" 50rem
     / 1fr 2fr 2fr 1fr;
 
-  grid-row-gap: var(--distance-section);
+  // grid-row-gap: var(--distance-section);
 
   align-items: center;
   // BOX
@@ -19,7 +22,19 @@
   // MEDIA QUERY
   @include respond(bp-small) {
     padding: var(--distance-top-bottom) 0 0 0;
-    grid-row-gap: calc(var(--distance-section) / 1.5);
+  }
+
+  @include respond(bp-medium) {
+    grid-template:
+      "me me me me" min-content
+      ".. .. .. .." var(--distance-section-small)
+      "th th th th" min-content
+      ".. .. .. .." var(--distance-section-small)
+      "ne ne ne ne" min-content
+      ".. .. .. .." var(--distance-section-small)
+      "sb sb sb sb" min-content
+      "ie ie ie ie" 50rem
+      / 1fr 2fr 2fr 1fr;
   }
 
   &__me {
@@ -108,6 +123,10 @@
     }
   }
 
+  &__social-band {
+    grid-area: sb;
+  }
+
   &__pic {
     grid-area: ie;
     // BOX
@@ -118,7 +137,7 @@
     border-top-right-radius: var(--border-radius);
     border-top-left-radius: var(--border-radius);
 
-    @include respond(bp-small) {
+    @include respond(bp-medium) {
       border-radius: 0;
     }
   }
