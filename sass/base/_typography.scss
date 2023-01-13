@@ -46,6 +46,7 @@ h2 {
 }
 
 .underline {
+  width: max-content;
   font-size: 4.8rem;
   line-height: 4.5rem;
   font-weight: 900;
@@ -103,6 +104,7 @@ blockquote {
 
   @include respond(bp-medium) {
     text-align: center;
+
     line-height: 1.5;
     font-weight: var(--font-weight-thin);
   }
