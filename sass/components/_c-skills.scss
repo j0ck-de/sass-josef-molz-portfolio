@@ -1,7 +1,13 @@
 .c-skills {
+  display: flex;
+
+  @include respond(bp-medium) {
+    flex-direction: column;
+  }
+
   &__item {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
@@ -33,10 +39,11 @@
       @include respond(bp-medium) {
         border-radius: 0;
       }
-
-      & div {
-        font-size: 3rem;
-      }
     }
+  }
+  &__icons {
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
   }
 }

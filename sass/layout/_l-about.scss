@@ -106,7 +106,7 @@
     }
     & div {
       // in component
-      display: flex;
+      // display: flex;
       width: 100%;
 
       @include respond(bp-medium) {
