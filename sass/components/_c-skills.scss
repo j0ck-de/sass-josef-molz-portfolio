@@ -10,12 +10,19 @@
     // justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    min-width: 33.33%;
 
     box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25);
     color: var(--color-primary);
     padding: var(--distance-top-bottom) var(--distance-min-left-right);
     text-align: center;
+
+    @include respond(bp-medium) {
+      padding: var(--distance-top-bottom) var(--distance-left-right);
+    }
+    @include respond(bp-small) {
+      padding: var(--distance-top-bottom) var(--distance-min-left-right);
+    }
 
     &--left {
       background-color: var(--color-highlight);
@@ -42,7 +49,8 @@
     }
   }
   &__text {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
+    font-weight: var(--font-weigh-thin);
     margin-top: var(--distance-min-top-bottom);
   }
   &__line {
