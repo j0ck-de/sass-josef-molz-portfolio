@@ -526,7 +526,7 @@ button {
     width: 100%;
     box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25);
     color: var(--color-primary);
-    padding: var(--distance-left-right);
+    padding: var(--distance-top-bottom) var(--distance-min-left-right);
     text-align: center; }
     .c-skills__item--left {
       background-color: var(--color-highlight);
@@ -547,10 +547,38 @@ button {
       @media only screen and (max-width: 56.25em) {
         .c-skills__item--right {
           border-radius: 0; } }
+  .c-skills__text {
+    font-size: 1.25rem;
+    margin-top: var(--distance-min-top-bottom); }
+  .c-skills__line {
+    width: 75%;
+    height: 2px;
+    margin: var(--distance-min-top-bottom) 0; }
+    .c-skills__line--primary {
+      background-color: var(--color-primary); }
+    .c-skills__line--secondary {
+      background-color: var(--color-secondary); }
   .c-skills__icons {
+    display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 5rem; }
+    font-size: 5rem;
+    margin-top: var(--distance-min-left-right); }
+    .c-skills__icons > * {
+      padding: 0 1rem; }
+    .c-skills__icons img {
+      height: 5rem;
+      padding: 0; }
+    .c-skills__icons--inverted img {
+      filter: invert(100%);
+      -webkit-filter: invert(100%); }
+  .c-skills__icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    .c-skills__icon-container span {
+      font-size: 1.25rem; }
 
 .c-social-band {
   position: relative;
@@ -689,17 +717,12 @@ button {
       text-align: center;
       display: inline-block;
       align-self: center; }
-    .l-about__tech p {
+    .l-about__tech > p {
       margin-top: var(--distance-min-top-bottom);
       margin-bottom: calc(var(--distance-min-top-bottom) / 1.5); }
       @media only screen and (max-width: 37.5em) {
-        .l-about__tech p {
+        .l-about__tech > p {
           padding: var(--distance-min-top-bottom) var(--distance-min-left-right); } }
-    .l-about__tech div {
-      width: 100%; }
-      @media only screen and (max-width: 56.25em) {
-        .l-about__tech div {
-          flex-direction: column; } }
   .l-about__name {
     grid-area: ne; }
     @media only screen and (max-width: 56.25em) {

@@ -97,20 +97,11 @@
       display: inline-block;
       align-self: center;
     }
-    & p {
+    & > p {
       margin-top: var(--distance-min-top-bottom);
       margin-bottom: calc(var(--distance-min-top-bottom) / 1.5);
       @include respond(bp-small) {
         padding: var(--distance-min-top-bottom) var(--distance-min-left-right);
-      }
-    }
-    & div {
-      // in component
-      // display: flex;
-      width: 100%;
-
-      @include respond(bp-medium) {
-        flex-direction: column;
       }
     }
   }
