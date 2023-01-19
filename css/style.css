@@ -142,6 +142,7 @@ h2 {
   letter-spacing: -0.1rem; }
 
 .underline {
+  display: inline-block;
   width: max-content;
   font-size: 4.8rem;
   line-height: 4.5rem;
@@ -632,14 +633,68 @@ button {
     font-size: 3rem; }
 
 .c-project {
+  display: flex;
+  flex-direction: column;
   margin-top: var(--distance-min-top-bottom);
   padding: 0 0;
   text-align: left; }
+  @media only screen and (max-width: 56.25em) {
+    .c-project {
+      align-items: center; } }
   .c-project__img {
+    height: 15em;
     width: 100%;
-    border-radius: var(--border-radius); }
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25); }
+  .c-project__title {
+    display: flex;
+    text-align: left;
+    white-space: nowrap;
+    flex-wrap: wrap;
+    margin-top: var(--distance-min-top-bottom); }
+    @media only screen and (max-width: 56.25em) {
+      .c-project__title {
+        justify-content: center; } }
+    .c-project__title--primary {
+      background-color: var(--color-primary);
+      color: var(--color-secondary); }
+    .c-project__title--secondary {
+      background-color: var(--color-secondary);
+      color: var(--color-highlight); }
+    .c-project__title span {
+      display: inline-block; }
+    .c-project__title > * {
+      padding: 0.25rem 1rem; }
   .c-project__text {
     margin-top: var(--distance-min-top-bottom); }
+  .c-project__tools {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: var(--distance-min-top-bottom);
+    font-size: 1.25rem; }
+    @media only screen and (max-width: 56.25em) {
+      .c-project__tools {
+        justify-content: center; } }
+    .c-project__tools span {
+      display: block;
+      padding: 0.25rem 1rem;
+      white-space: nowrap;
+      margin-top: 0.5rem; }
+      .c-project__tools span:not(:last-child) {
+        margin-right: 5px; }
+    .c-project__tools--highlight {
+      background-color: var(--color-highlight);
+      color: var(--color-secondary); }
+    .c-project__tools--primary {
+      background-color: var(--color-primary);
+      color: var(--color-secondary); }
+    .c-project__tools--teritery {
+      background-color: var(--color-teritery);
+      color: var(--color-primary); }
+    .c-project__tools--secondary {
+      background-color: var(--color-secondary);
+      color: var(--color-primary); }
   .c-project__link {
     display: block;
     text-align: right;
@@ -755,7 +810,7 @@ button {
   justify-content: stretch;
   flex-direction: row;
   width: 100%; }
-  @media only screen and (max-width: 37.5em) {
+  @media only screen and (max-width: 56.25em) {
     .l-projects {
       flex-direction: column; } }
   .l-projects__left, .l-projects__right {
@@ -768,8 +823,6 @@ button {
   .l-projects__right {
     background-color: var(--color-highlight);
     color: var(--color-secondary); }
-  .l-projects * h3 {
-    display: inline-block; }
 
 .p-start {
   display: grid;

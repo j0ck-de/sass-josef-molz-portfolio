@@ -1,15 +1,93 @@
 .c-project {
+  display: flex;
+  flex-direction: column;
   margin-top: var(--distance-min-top-bottom);
   padding: 0 0;
   text-align: left;
 
+  @include respond(bp-medium) {
+    align-items: center;
+  }
+
   &__img {
+    height: 15em;
     width: 100%;
     border-radius: var(--border-radius);
+    object-fit: cover;
+    box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  &__title {
+    display: flex;
+    text-align: left;
+    white-space: nowrap;
+    flex-wrap: wrap;
+
+    margin-top: var(--distance-min-top-bottom);
+
+    @include respond(bp-medium) {
+      justify-content: center;
+    }
+
+    &--primary {
+      background-color: var(--color-primary);
+      color: var(--color-secondary);
+    }
+    &--secondary {
+      background-color: var(--color-secondary);
+      color: var(--color-highlight);
+    }
+
+    & span {
+      display: inline-block;
+    }
+
+    & > * {
+      padding: 0.25rem 1rem;
+    }
   }
 
   &__text {
     margin-top: var(--distance-min-top-bottom);
+  }
+
+  &__tools {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: var(--distance-min-top-bottom);
+    font-size: 1.25rem;
+
+    @include respond(bp-medium) {
+      justify-content: center;
+    }
+
+    & span {
+      display: block;
+      padding: 0.25rem 1rem;
+      white-space: nowrap;
+      margin-top: 0.5rem;
+
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+    }
+
+    &--highlight {
+      background-color: var(--color-highlight);
+      color: var(--color-secondary);
+    }
+    &--primary {
+      background-color: var(--color-primary);
+      color: var(--color-secondary);
+    }
+    &--teritery {
+      background-color: var(--color-teritery);
+      color: var(--color-primary);
+    }
+    &--secondary {
+      background-color: var(--color-secondary);
+      color: var(--color-primary);
+    }
   }
 
   &__link {

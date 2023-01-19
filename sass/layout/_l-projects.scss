@@ -4,7 +4,7 @@
   flex-direction: row;
   width: 100%;
 
-  @include respond(bp-small) {
+  @include respond(bp-medium) {
     flex-direction: column;
   }
 
@@ -27,6 +27,6 @@
   }
 
   & * h3 {
-    display: inline-block;
+    //  display: inline-block;
   }
 }
